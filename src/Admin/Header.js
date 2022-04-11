@@ -2,12 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Header = () => {
+
   return (
     <div>
       <nav className="navbar navbar-expand navbar-light bg-white topbar mb-2 static-top shadow">
-        {/* Sidebar Toggle (Topbar) */}
-        
-        {/* Topbar Search */}
         <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
           <div className="input-group">
             <input type="text" className="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
@@ -18,22 +16,18 @@ export const Header = () => {
             </div>
           </div>
         </form>
-        {/* Topbar Navbar */}
         <ul className="navbar-nav ml-auto">
-          
-          
           <div className="topbar-divider d-none d-sm-block" />
-          {/* Nav Item - User Information */}
           <li className="nav-item dropdown no-arrow">
-            <Link  to="/" >
+            <Link to="/" >
               <button className="btn btn-primary" type="button">Logout</button>
-              
             </Link>
-            
           </li>
         </ul>
       </nav>
     </div>
+
+
 
 
   )

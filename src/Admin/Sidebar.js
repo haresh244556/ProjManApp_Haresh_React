@@ -1,11 +1,12 @@
 import React from "react";
-import { 
+import {
   CDBSidebar,
   CDBSidebarContent,
   CDBSidebarFooter,
   CDBSidebarHeader,
   CDBSidebarMenu,
-  CDBSidebarMenuItem } from "cdbreact";
+  CDBSidebarMenuItem
+} from "cdbreact";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
@@ -13,7 +14,7 @@ const Sidebar = () => {
   return (
     <div
       className={`app`}
-      style={{ display: "flex", height: "100vh", overflow:"scroll initial"}}
+      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
     >
       <CDBSidebar
         textColor="#fff"
@@ -24,9 +25,9 @@ const Sidebar = () => {
             <i className="fa fa-bars fa-large"></i>
           }
         >
-          <a href="/" className="text-decoration-none" style={{color:"inherit"}}>
-          Admin Dashboard 
-          </a>
+          <NavLink to="" className="text-decoration-none" style={{ color: "inherit" }}>
+            Admin Dashboard
+          </NavLink>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
@@ -34,7 +35,7 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/role"
-              activeClassName="activeClicked"
+              activeclassName="activeClicked"
             >
               <CDBSidebarMenuItem
                 icon="columns"
@@ -45,7 +46,7 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/user"
-              activeClassName="activeClicked"
+              activeclassName="activeClicked"
             >
               <CDBSidebarMenuItem
                 icon="user"
@@ -56,7 +57,7 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/project"
-              activeClassName="activeClicked"
+              activeclassName="activeClicked"
             >
               <CDBSidebarMenuItem
                 icon="table"
@@ -64,16 +65,28 @@ const Sidebar = () => {
                 Projects
               </CDBSidebarMenuItem>
             </NavLink>
-          </CDBSidebarMenu>
-          <CDBSidebarMenu>
-          </CDBSidebarMenu>
-          <CDBSidebarMenu>
-          </CDBSidebarMenu>
-          <CDBSidebarMenu>
-          </CDBSidebarMenu>
-          <CDBSidebarMenu>
-          </CDBSidebarMenu>
-          <CDBSidebarMenu>
+            <NavLink
+              exact
+              to="/project_module"
+              activeclassName="activeClicked"
+            >
+              <CDBSidebarMenuItem
+                icon="sticky-note"
+              >
+                Project Modules
+              </CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink
+              exact
+              to="/project_task"
+              activeclassName="activeClicked"
+            >
+              <CDBSidebarMenuItem
+                icon="th-large"
+              >
+                Project Tasks
+              </CDBSidebarMenuItem>
+            </NavLink>
           </CDBSidebarMenu>
           <CDBSidebarMenu>
           </CDBSidebarMenu>

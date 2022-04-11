@@ -6,17 +6,17 @@ import { Header } from '../Admin/Header';
 import Sidebar from '../Admin/Sidebar';
 import { Footer } from '../Admin/Footer';
 
-export const GetProject = () => {
+export const GetProjectmodule = () => {
 
-    const [projectList, setprojectList] = useState([])
+    const [project_moduleList, setproject_moduleList] = useState([])
 
 
 
     const getData = () => {
 
-        axios.get(`http://localhost:4000/projects/`).then(res => {
+        axios.get(`http://localhost:4000/project_modules/`).then(res => {
             console.log(res.data.data)
-            setprojectList(res.data.data)
+            setproject_moduleList(res.data.data)
 
         })
 
@@ -27,7 +27,7 @@ export const GetProject = () => {
 
     const deleteData = (id) => {
         {
-            axios.delete(`http://localhost:4000/projects/${id}`).then(res => {
+            axios.delete(`http://localhost:4000/project_modules/${id}`).then(res => {
                 console.log(res.status)
                 alert("Data deleted...")
             })
@@ -44,10 +44,10 @@ export const GetProject = () => {
                     <div id="content">
                         <Header />
                         <div className="container-fluid">
-                            <h2 className="h3 mb-2 text-gray-800">Project Details</h2>
+                            <h2 className="h3 mb-2 text-gray-800">Project_module Details</h2>
                             <div className="card shadow mb-3">
                                 <div className="card-header py-2">
-                                    <Link to="/addProject" className="btn btn-success"  >Add Project</Link>
+                                    <Link to="/addProject_module" className="btn btn-success"  >Add Project_module</Link>
                                 </div>
 
                                 <div className="card-header py-3">
@@ -55,34 +55,30 @@ export const GetProject = () => {
                                         <table className=" table table-bordered table-hover table-sm">
                                             <thead className="thead-light" >
                                                 <tr>
-                                                    <th scope="col">ProjectId</th>
-                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Project_moduleId</th>
+                                                    <th scope="col">ModuleName</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Technology</th>
                                                     <th scope="col">EstimatedHours</th>
-                                                    <th scope="col">StartDate</th>
-                                                    <th scope="col">CompletionDate</th>
+                                                    <th scope="col">Status</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {
-                                                    projectList.map((project) => {
+                                                    project_moduleList.map((project_module) => {
                                                         return (
                                                             <tr>
-                                                                <th scope="row">{project._id}</th>
-                                                                <td>{project.title}</td>
-                                                                <td>{project.description}</td>
-                                                                <td>{project.technology}</td>
-                                                                <td>{project.estimatedHours}</td>
-                                                                <td>{project.startDate}</td>
-                                                                <td>{project.completionDate}</td>
-
+                                                                <th scope="row">{project_module._id}</th>
+                                                                <td>{project_module.moduleName}</td>
+                                                                <td>{project_module.description}</td>
+                                                                <td>{project_module.estimatedHours}</td>
+                                                                <td>{project_module.status.statusName}</td>
+                                                                
                                                                 <td>
 
-                                                                    <button onClick={() => { deleteData(project._id) }} className="btn btn-danger">DELETE</button>
+                                                                    <button onClick={() => { deleteData(project_module._id) }} className="btn btn-danger">DELETE</button>
 
-                                                                    <Link to={`/UpdateProject/${project._id}`} className="btn btn-primary" >UPDATE</Link>
+                                                                    <Link to={`/UpdateProject_module/${project_module._id}`} className="btn btn-primary" >UPDATE</Link>
 
                                                                 </td>
                                                             </tr>
@@ -103,4 +99,5 @@ export const GetProject = () => {
         </div>
     )
 }
+
 
