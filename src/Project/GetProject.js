@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 import { Header } from '../Admin/Header';
 import Sidebar from '../Admin/Sidebar';
 import { Footer } from '../Admin/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const GetProject = () => {
 
     const [projectList, setprojectList] = useState([])
-
-
 
     const getData = () => {
 
@@ -29,7 +29,16 @@ export const GetProject = () => {
         {
             axios.delete(`http://localhost:4000/projects/${id}`).then(res => {
                 console.log(res.status)
-                alert("Data deleted...")
+                toast.success('🦄 Project Deleted Successfully', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark"
+                });
             })
         }
     }
@@ -52,7 +61,7 @@ export const GetProject = () => {
 
                                 <div className="card-header py-3">
                                     <div>
-                                        <table className=" table table-bordered table-hover table-sm">
+                                        <table className=" table  table-hover table-responsive">
                                             <thead className="thead-light" >
                                                 <tr>
                                                     <th scope="col">ProjectId</th>
@@ -95,6 +104,17 @@ export const GetProject = () => {
                                     </div>
                                 </div>
                             </div>
+                            <ToastContainer
+                                position="top-center"
+                                autoClose={2500}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                            />
                         </div>
                     </div>
                     <Footer />

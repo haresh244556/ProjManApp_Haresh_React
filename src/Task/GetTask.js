@@ -8,28 +8,29 @@ import { Footer } from '../Admin/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const GetProjectmodule = () => {
+export const GetTask = () => {
 
-    const [project_moduleList, setproject_moduleList] = useState([])
+    const [taskList, settaskList] = useState([])
 
     const getData = () => {
 
-        axios.get(`http://localhost:4000/project_modules/`).then(res => {
+        axios.get(`http://localhost:4000/tasks/`).then(res => {
             console.log(res.data.data)
-            setproject_moduleList(res.data.data)
+            settaskList(res.data.data)
 
         })
 
     }
     useEffect(() => {
         getData()
+
     }, [])
 
     const deleteData = (id) => {
         {
-            axios.delete(`http://localhost:4000/project_modules/${id}`).then(res => {
+            axios.delete(`http://localhost:4000/tasks/${id}`).then(res => {
                 console.log(res.status)
-                toast.success('🦄 Project_module Deleted Successfully', {
+                toast.success('🦄 Task Deleted Successfully', {
                     position: "top-center",
                     autoClose: 2000,
                     hideProgressBar: false,
@@ -53,10 +54,10 @@ export const GetProjectmodule = () => {
                     <div id="content">
                         <Header />
                         <div className="container-fluid">
-                            <h2 className="h3 mb-2 text-gray-800">Project_module Details</h2>
+                            <h2 className="h3 mb-2 text-gray-800">Task Details</h2>
                             <div className="card shadow mb-3">
                                 <div className="card-header py-2">
-                                    <Link to="/addProject_module" className="btn btn-success"  >Add Project_module</Link>
+                                    <Link to="/addTask" className="btn btn-success"  >Add Task</Link>
                                 </div>
 
                                 <div className="card-header py-3">
@@ -64,9 +65,10 @@ export const GetProjectmodule = () => {
                                         <table className=" table  table-hover table-responsive">
                                             <thead className="thead-light" >
                                                 <tr>
-                                                    <th scope="col">Project_moduleId</th>
+                                                    <th scope="col">TaskId</th>
                                                     <th scope="col">ProjectName</th>
                                                     <th scope="col">ModuleName</th>
+                                                    <th scope="col">TaskName</th>
                                                     <th scope="col">Description</th>
                                                     <th scope="col">EstimatedHours</th>
                                                     <th scope="col">Status</th>
@@ -75,21 +77,22 @@ export const GetProjectmodule = () => {
                                             </thead>
                                             <tbody>
                                                 {
-                                                    project_moduleList.map((project_module) => {
+                                                    taskList.map((task) => {
                                                         return (
                                                             <tr>
-                                                                <th scope="row">{project_module._id}</th>
-                                                                <td>{project_module.project.title}</td>
-                                                                <td>{project_module.moduleName}</td>
-                                                                <td>{project_module.description}</td>
-                                                                <td>{project_module.estimatedHours}</td>
-                                                                <td>{project_module.status.statusName}</td>
+                                                                <th scope="row">{task._id}</th>
+                                                                <td>{task.project.title}</td>
+                                                                <td>{task.project_module.moduleName}</td>
+                                                                <td>{task.taskName}</td>
+                                                                <td>{task.description}</td>
+                                                                <td>{task.estimatedHours}</td>
+                                                                <td>{task.status.statusName}</td>
 
                                                                 <td>
 
-                                                                    <button onClick={() => { deleteData(project_module._id) }} className="btn btn-danger">DELETE</button>
+                                                                    <button onClick={() => { deleteData(task._id) }} className="btn btn-danger">DELETE</button>
 
-                                                                    <Link to={`/UpdateProject_module/${project_module._id}`} className="btn btn-primary" >UPDATE</Link>
+                                                                    <Link to={`/UpdateTask/${task._id}`} className="btn btn-primary" >UPDATE</Link>
 
                                                                 </td>
                                                             </tr>

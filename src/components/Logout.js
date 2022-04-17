@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
 export const Logout = () => {
-    let navigate = useNavigate()
+    var navigate = useNavigate()
 
     useEffect(() =>{
-        localStorage.removeItem('email')
-        localStorage.removeItem('password')
+        localStorage.removeItem('email',email)
+        localStorage.removeItem('password',password)
 
         navigate('/')
         

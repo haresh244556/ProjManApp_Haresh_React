@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Header } from '../Admin/Header';
 import Sidebar from '../Admin/Sidebar';
 import { MainContent } from '../Admin/MainContent';
 import { Footer } from '../Admin/Footer';
-import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const UpdateRole = () => {
   var id = useParams().id;
@@ -36,7 +37,17 @@ export const UpdateRole = () => {
     e.preventDefault()
 
     axios.put(`http://localhost:4000/roles/`, Data).then(res => {
-      alert("Data updated...")
+
+      toast.success('🦄 Role Updated Successfully', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark"
+      });
     })
   }
 
@@ -62,6 +73,17 @@ export const UpdateRole = () => {
                       </div>
 
                       <button type="submit" className="btn btn-primary">Submit</button>
+                      <ToastContainer
+                        position="top-center"
+                        autoClose={2500}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                      />
                     </form>
 
                   </div>

@@ -16,7 +16,13 @@ import { UpdateUser } from './User/UpdateUser';
 import { AddProject } from './Project/AddProject';
 import { GetProject } from './Project/GetProject';
 import { UpdateProject } from './Project/UpdateProject';
-import{GetProjectmodule} from './Project_module/GetProjectmodule'
+import { AddProjectmodule } from './Project_module/AddProjectmodule';
+import { GetProjectmodule } from './Project_module/GetProjectmodule';
+import { UpdateProjectmodule } from './Project_module/UpdateProjectmodule';
+import { AddTask } from './Task/AddTask';
+import { GetTask } from './Task/GetTask';
+import { UpdateTask } from './Task/UpdateTask';
+
 
 function App() {
 
@@ -43,6 +49,11 @@ function App() {
         <Route path="/addProject" element={<AddProject />}></Route>
         <Route path="/UpdateProject/:id" element={<UpdateProject />}></Route>
         <Route path="/project_module" element={<GetProjectmodule />}></Route>
+        <Route path="/addProject_module" element={<AddProjectmodule />}></Route>
+        <Route path="/UpdateProject_module/:id" element={<UpdateProjectmodule />}></Route>
+        <Route path="/Task" element={<GetTask />}></Route>
+        <Route path="/addTask" element={<AddTask />}></Route>
+        <Route path="/UpdateTask/:id" element={<UpdateTask />}></Route>
       </Routes>
 
     </div>

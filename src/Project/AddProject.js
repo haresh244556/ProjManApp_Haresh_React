@@ -1,12 +1,13 @@
 import React from 'react'
-import {  useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import { Header } from '../Admin/Header';
 import Sidebar from '../Admin/Sidebar';
 import { Footer } from '../Admin/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AddProject = () => {
-
 
     const [title, settitle] = useState('')
     const [description, setdescription] = useState('')
@@ -30,7 +31,16 @@ export const AddProject = () => {
         axios.post('http://localhost:4000/projects', data).then(res => {
             console.log(res.status)
             console.log(res.data)
-            alert("Project added successfuly...")
+            toast.success('🦄 Project Added Successfully', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
 
         })
 
@@ -61,7 +71,17 @@ export const AddProject = () => {
                                                 <input className="form-control" type="text" name="completionDate" placeholder="Enter CompletionDate " onChange={(e) => { setcompletionDate(e.target.value) }} required />
                                             </div>
                                             <button type="submit" className="btn btn-primary">Submit</button>
-
+                                            <ToastContainer
+                                                position="top-center"
+                                                autoClose={2500}
+                                                hideProgressBar={false}
+                                                newestOnTop={false}
+                                                closeOnClick
+                                                rtl={false}
+                                                pauseOnFocusLoss
+                                                draggable
+                                                pauseOnHover
+                                            />
                                         </form>
                                     </div>
                                 </div>

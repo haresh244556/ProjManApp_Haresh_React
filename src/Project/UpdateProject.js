@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { Header } from '../Admin/Header';
 import Sidebar from '../Admin/Sidebar';
 import { Footer } from '../Admin/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const UpdateProject = () => {
 
@@ -30,7 +32,7 @@ export const UpdateProject = () => {
 
   useEffect(() => {
     getData()
-    
+
   }, [])
 
 
@@ -48,7 +50,16 @@ export const UpdateProject = () => {
     e.preventDefault()
     axios.put('http://localhost:4000/projects/', Data).then(res => {
 
-      alert("Project Updated ...")
+      toast.success('🦄 Role Updated Successfully', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark"
+      });
 
     })
 
@@ -84,6 +95,17 @@ export const UpdateProject = () => {
                         <input type="text" className="form-control" aria-describedby="completionDateHelp" defaultValue={project.completionDate} placeholder="Enter CompletionDate " onChange={(e) => setcompletionDate(e.target.value)} />
                       </div>
                       <button type="submit" className="btn btn-primary">Submit</button>
+                      <ToastContainer
+                        position="top-center"
+                        autoClose={2500}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                      />
                     </form>
 
                   </div>

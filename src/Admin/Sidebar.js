@@ -35,7 +35,7 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/role"
-              activeclassName="activeClicked"
+              activeclassname="activeClicked"
             >
               <CDBSidebarMenuItem
                 icon="columns"
@@ -46,7 +46,7 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/user"
-              activeclassName="activeClicked"
+              activeclassname="activeClicked"
             >
               <CDBSidebarMenuItem
                 icon="user"
@@ -57,7 +57,7 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/project"
-              activeclassName="activeClicked"
+              activeclassname="activeClicked"
             >
               <CDBSidebarMenuItem
                 icon="table"
@@ -68,7 +68,7 @@ const Sidebar = () => {
             <NavLink
               exact
               to="/project_module"
-              activeclassName="activeClicked"
+              activeclassname="activeClicked"
             >
               <CDBSidebarMenuItem
                 icon="sticky-note"
@@ -78,8 +78,8 @@ const Sidebar = () => {
             </NavLink>
             <NavLink
               exact
-              to="/project_task"
-              activeclassName="activeClicked"
+              to="/Task"
+              activeclassname="activeClicked"
             >
               <CDBSidebarMenuItem
                 icon="th-large"

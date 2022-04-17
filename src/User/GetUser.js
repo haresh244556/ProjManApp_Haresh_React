@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom'
 import { Header } from '../Admin/Header';
 import Sidebar from '../Admin/Sidebar';
 import { Footer } from '../Admin/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const GetUser = () => {
 
     const [userList, setuserList] = useState([])
-    
+
     const getData = () => {
 
         axios.get(`http://localhost:4000/users/`).then(res => {
@@ -27,7 +29,16 @@ export const GetUser = () => {
         {
             axios.delete(`http://localhost:4000/users/${id}`).then(res => {
                 console.log(res.status)
-                alert("Data deleted...")
+                toast.success('🦄 User Deleted Successfully', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark"
+                });
             })
 
         }
@@ -50,7 +61,7 @@ export const GetUser = () => {
 
                                 <div className="card-header py-3">
                                     <div>
-                                        <table className=" table table-bordered table-hover">
+                                        <table className=" table  table-hover table-responsive ">
                                             <thead className="thead-light" >
                                                 <tr>
                                                     <th scope="col">UserId</th>
@@ -86,6 +97,17 @@ export const GetUser = () => {
                                     </div>
                                 </div>
                             </div>
+                            <ToastContainer
+                                position="top-center"
+                                autoClose={2500}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                            />
                         </div>
                     </div>
                     <Footer />
