@@ -2,13 +2,13 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { Header } from '../Admin/Header';
-import Sidebar from '../Admin/Sidebar';
-import { Footer } from '../Admin/Footer';
+import { PMHeader } from '../PMHeader';
+import PMSidebar from '../PMSidebar';
+import { PMFooter } from '../PMFooter';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const UpdateProject = () => {
+export const PMUpdateProject = () => {
 
   var id = useParams().id;
   const [project, setproject] = useState('')
@@ -69,16 +69,15 @@ export const UpdateProject = () => {
   return (
     <div>
       <div id="wrapper">
-        <Sidebar />
+        <PMSidebar />
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
 
-            <Header />
+            <PMHeader />
             <div className="container-fluid">
               <h2 className="h3 mb-2 text-gray-800">Update Project</h2>
               <div className="card shadow mb-3">
                 <div className="card-header py-3">
-
                   <div>
                     <form onSubmit={updateData}>
                       <div className="form-group">
@@ -110,21 +109,14 @@ export const UpdateProject = () => {
 
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
-          <Footer />
+          <PMFooter />
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
   )
 }
 
