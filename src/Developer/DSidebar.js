@@ -25,7 +25,7 @@ const DSidebar = () => {
             <i className="fa fa-bars fa-large"></i>
           }
         >
-          <NavLink to="" className="text-decoration-none" style={{ color: "inherit" }}>
+          <NavLink to="/DeveloperDashboard" className="text-decoration-none" style={{ color: "inherit" }}>
             Developer <br/>Dashboard
           </NavLink>
         </CDBSidebarHeader>
@@ -61,7 +61,7 @@ const DSidebar = () => {
               padding: "20px 5px"
             }}
           >
-            sidebar Footer
+          
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>

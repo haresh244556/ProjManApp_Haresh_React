@@ -60,8 +60,8 @@ export const GetProject = () => {
                                 </div>
 
                                 <div className="card-header py-3">
-                                    <div>
-                                        <table className=" table  table-hover table-responsive">
+                                    <div >
+                                        <table className=" table  table-hover table-responsive" style={{display:"block",maxHeight:"350px"}} >
                                             <thead className="thead-light" >
                                                 <tr>
                                                     <th scope="col">ProjectId</th>
@@ -71,10 +71,11 @@ export const GetProject = () => {
                                                     <th scope="col">EstimatedHours</th>
                                                     <th scope="col">StartDate</th>
                                                     <th scope="col">CompletionDate</th>
+                                                    <th scope="col">Status</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody >
                                                 {
                                                     projectList.map((project) => {
                                                         return (
@@ -86,7 +87,7 @@ export const GetProject = () => {
                                                                 <td>{project.estimatedHours}</td>
                                                                 <td>{project.startDate}</td>
                                                                 <td>{project.completionDate}</td>
-
+                                                                <td>{project.status.statusName}</td>
                                                                 <td>
 
                                                                     <button onClick={() => { deleteData(project._id) }} className="btn btn-danger">DELETE</button>

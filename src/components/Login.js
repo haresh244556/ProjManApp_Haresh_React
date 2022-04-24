@@ -146,9 +146,8 @@ export const Login = () => {
                                                     <input className="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
                                                     <label className="form-check-label" for="inputRememberPassword">Remember Password</label>
                                                 </div>
-                                                <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                    <Link className="small" to="">Forgot Password?</Link>
-                                                    <button type="submit" class="btn btn-primary">Login</button>
+                                                <div className="mt-4 mb-3">
+                                                    <div className="d-grid"><button className="btn btn-primary btn-block" > <strong>Login</strong></button></div>
                                                 </div>
                                                 <ToastContainer
                                                     position="top-center"

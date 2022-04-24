@@ -104,7 +104,7 @@ export const UpdateProjectmodule = () => {
                                                 <input className="form-control" type="text" name="description" placeholder="Enter Description" onChange={(e) => { setdescription(e.target.value) }} />
                                                 <input className="form-control" type="text" name="estimatedHours" placeholder="Enter EstimatedHours " onChange={(e) => { setestimatedHours(e.target.value) }} />
                                                 <label className="h6 mb-2 text-gray-800" >Status</label>
-                                                <select className="form-control" type="text" onChange={(e) => { setstatus(e.target.value) }} required >
+                                                <select className="form-control" type="text" onChange={(e) => { setstatus(e.target.value) }} >
                                                     <option>--Select--</option>
                                                     {statusList.map((status) => {
                                                         return (

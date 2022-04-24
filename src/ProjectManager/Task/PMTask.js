@@ -56,11 +56,16 @@ export const PMTask = () => {
                         <div className="container-fluid">
                             <h2 className="h3 mb-2 text-gray-800">Task Details</h2>
                             <div className="card shadow mb-3">
-                                
+                                <div className="card-header py-2">
+                                    
+                                    <Link to="/PMAddTask" className="btn btn-success"  >Add Task</Link>
+                                    
+                                    <Link to={`/PMUser_task`} className="btn btn-info"  style={{marginLeft:"10px"}}>Assign Task</Link>
+                                </div>
 
                                 <div className="card-header py-3">
                                     <div>
-                                        <table className=" table  table-hover table-responsive">
+                                        <table className=" table  table-hover table-responsive" style={{display:"block",maxHeight:"350px"}}>
                                             <thead className="thead-light" >
                                                 <tr>
                                                     <th scope="col">TaskId</th>
@@ -87,11 +92,8 @@ export const PMTask = () => {
                                                                 <td>{task.status.statusName}</td>
 
                                                                 <td>
-
                                                                     <button onClick={() => { deleteData(task._id) }} className="btn btn-danger">DELETE</button>
-
                                                                     <Link to={`/PMUpdateTask/${task._id}`} className="btn btn-primary" >UPDATE</Link>
-
                                                                 </td>
                                                             </tr>
 

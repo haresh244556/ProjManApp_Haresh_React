@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export const DTask = () => {
 
     const [taskList, settaskList] = useState([])
+    
+    
 
     const getData = () => {
 
@@ -19,6 +21,8 @@ export const DTask = () => {
             settaskList(res.data.data)
 
         })
+        
+        
 
     }
     useEffect(() => {
@@ -44,7 +48,7 @@ export const DTask = () => {
 
                                 <div className="card-header py-3">
                                     <div>
-                                        <table className=" table  table-hover table-responsive">
+                                        <table className=" table  table-hover table-responsive" style={{display:"block",maxHeight:"350px"}}>
                                             <thead className="thead-light" >
                                                 <tr>
                                                     <th scope="col">TaskId</th>
@@ -54,6 +58,7 @@ export const DTask = () => {
                                                     <th scope="col">Description</th>
                                                     <th scope="col">EstimatedHours</th>
                                                     <th scope="col">Status</th>
+                                                  
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
@@ -69,7 +74,7 @@ export const DTask = () => {
                                                                 <td>{task.description}</td>
                                                                 <td>{task.estimatedHours}</td>
                                                                 <td>{task.status.statusName}</td>
-
+                                                                
                                                                 <td>
                                                                     <Link to={`/dUpdateTask/${task._id}`} className="btn btn-primary" >UPDATE</Link>
                                                                 </td>

@@ -24,15 +24,19 @@ import { UpdateProjectmodule } from './Project_module/UpdateProjectmodule';
 import { AddTask } from './Task/AddTask';
 import { GetTask } from './Task/GetTask';
 import { UpdateTask } from './Task/UpdateTask';
+import { Report } from './Project/Report';
 
 //Project Manager
 import {ProjectManagerDashboard} from './ProjectManager/ProjectManagerDashboard';
 import { PMProject } from './ProjectManager/Project/PMProject';
 import { PMUpdateProject } from './ProjectManager/Project/PMUpdateProject';
 import { PMProjectmodule } from './ProjectManager/Project_module/PMProjectmodule';
+import { PMAddProjectmodule } from './ProjectManager/Project_module/PMAddProjectmodule';
 import { PMUpdateProjectmodule} from './ProjectManager/Project_module/PMUpdateProjectmodule';
 import { PMTask } from './ProjectManager/Task/PMTask';
+import { PMAddTask } from './ProjectManager/Task/PMAddTask';
 import { PMUpdateTask } from './ProjectManager/Task/PMUpdateTask';
+import { PMUser_task } from './ProjectManager/Task/PMUser_task';
 
 //Developer
 import {DeveloperDashboard} from './Developer/DeveloperDashboard';
@@ -44,6 +48,7 @@ function App() {
   return (
 
     <div>
+      
       
       <Routes>
         <Route path="/" element={<Navbar />}></Route>
@@ -68,6 +73,7 @@ function App() {
         <Route path="/Task" element={<GetTask />}></Route>
         <Route path="/addTask" element={<AddTask />}></Route>
         <Route path="/UpdateTask/:id" element={<UpdateTask />}></Route>
+        <Route path="/Report" element={<Report />}></Route>
       </Routes>
 
       <Routes>
@@ -75,9 +81,12 @@ function App() {
         <Route path="/pmproject" element={<PMProject />}></Route>
         <Route path="/PMUpdateProject/:id" element={<PMUpdateProject />}></Route>
         <Route path="/pmproject_module" element={<PMProjectmodule />}></Route>
+        <Route path="/PMAddProject_module" element={<PMAddProjectmodule />}></Route>
         <Route path="/PMUpdateProject_module/:id" element={<PMUpdateProjectmodule />}></Route>
         <Route path="/pmTask" element={<PMTask />}></Route>
+        <Route path="/PMAddTask" element={<PMAddTask />}></Route>
         <Route path="/PMUpdateTask/:id" element={<PMUpdateTask />}></Route>
+        <Route path="/PMUser_task" element={<PMUser_task />}></Route>
       </Routes>
       
         <Routes>

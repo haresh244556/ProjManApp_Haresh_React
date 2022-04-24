@@ -61,7 +61,7 @@ export const GetProjectmodule = () => {
 
                                 <div className="card-header py-3">
                                     <div>
-                                        <table className=" table  table-hover table-responsive">
+                                        <table className=" table  table-hover table-responsive" style={{display:"block",maxHeight:"350px"}}>
                                             <thead className="thead-light" >
                                                 <tr>
                                                     <th scope="col">Project_moduleId</th>

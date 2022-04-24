@@ -55,13 +55,11 @@ export const GetUser = () => {
                         <div className="container-fluid">
                             <h2 className="h3 mb-2 text-gray-800">User Details</h2>
                             <div className="card shadow mb-3">
-                                <div className="card-header py-2">
-                                    <Link to="/addUser" className="btn btn-success"  >Add User</Link>
-                                </div>
+                                
 
                                 <div className="card-header py-3">
                                     <div>
-                                        <table className=" table  table-hover table-responsive ">
+                                        <table className=" table  table-hover table-responsive " style={{display:"block",maxHeight:"350px"}}>
                                             <thead className="thead-light" >
                                                 <tr>
                                                     <th scope="col">UserId</th>

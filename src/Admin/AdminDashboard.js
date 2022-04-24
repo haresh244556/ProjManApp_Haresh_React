@@ -9,7 +9,7 @@ export const AdminDashboard = () => {
   return (
     <div>
       <div id="wrapper">
-        <Sidebar></Sidebar>
+        <Sidebar/>
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <Header />

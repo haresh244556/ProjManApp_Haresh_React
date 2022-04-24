@@ -25,7 +25,7 @@ const PMSidebar = () => {
             <i className="fa fa-bars fa-large"></i>
           }
         >
-          <NavLink to="" className="text-decoration-none" style={{ color: "inherit" }}>
+          <NavLink to="/ProjectManagerDashboard" className="text-decoration-none" style={{ color: "inherit" }}>
             Project Manager<br/><center>Dashboard</center>
           </NavLink>
         </CDBSidebarHeader>
@@ -83,7 +83,7 @@ const PMSidebar = () => {
               padding: "20px 5px"
             }}
           >
-            Sidebar Footer
+            
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>

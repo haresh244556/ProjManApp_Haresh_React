@@ -61,7 +61,8 @@ export const GetRole = () => {
                                     <Link to="/addRole" className="btn btn-success"  >Add Role</Link>
                                 </div>
                                 <div className="card-header py-3">
-                                    <table className="table table-bordered table-hover">
+                                    
+                                    <table className="table  table-hover table-responsive" style={{display:"block",maxHeight:"350px"}}>
                                         <thead className="thead-light" >
                                             <tr>
                                                 <th scope="col">RoleId</th>
@@ -69,7 +70,7 @@ export const GetRole = () => {
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody >
                                             {
                                                 roleList.map((role) => {
                                                     return (
@@ -90,6 +91,7 @@ export const GetRole = () => {
                                             }
                                         </tbody>
                                     </table>
+                                    
 
                                 </div>
                             </div>

@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export const UpdateProject = () => {
 
   var id = useParams().id;
+  const [statusList, setstatusList] = useState([])
+
   const [project, setproject] = useState('')
   const [title, settitle] = useState(project.title)
   const [description, setdescription] = useState(project.description)
@@ -18,14 +20,19 @@ export const UpdateProject = () => {
   const [estimatedHours, setestimatedHours] = useState(project.estimatedHours)
   const [startDate, setstartDate] = useState(project.startDate)
   const [completionDate, setcompletionDate] = useState(project.completionDate)
+  const [status, setstatus] = useState(project.status)
 
   const getData = () => {
 
     axios.get(`http://localhost:4000/projects/${id}`).then(res => {
       setproject(res.data.data)
       console.log(res.data.data)
-    }).catch(err => {
-      console.log(err);
+    })
+
+    axios.get(`http://localhost:4000/status/`).then(res => {
+      console.log(res.data.data)
+      setstatusList(res.data.data)
+
     })
   }
 
@@ -44,7 +51,8 @@ export const UpdateProject = () => {
       technology: technology,
       estimatedHours: estimatedHours,
       startDate: startDate,
-      completionDate: completionDate
+      completionDate: completionDate,
+      status: status
     }
 
     e.preventDefault()
@@ -93,6 +101,17 @@ export const UpdateProject = () => {
                         <input type="text" className="form-control" aria-describedby="startDateHelp" defaultValue={project.startDate} placeholder="Enter StartDate " onChange={(e) => setstartDate(e.target.value)} />
 
                         <input type="text" className="form-control" aria-describedby="completionDateHelp" defaultValue={project.completionDate} placeholder="Enter CompletionDate " onChange={(e) => setcompletionDate(e.target.value)} />
+
+                        <select className="form-control" type="text" defaultValue={project.status} onChange={(e) => { setstatus(e.target.value) }} >
+                          <option>--Select--</option>
+                          {statusList.map((status) => {
+                            return (
+                              <option value={status._id} data-select2-id="3">
+                                {status.statusName}
+                              </option>
+                            );
+                          })}
+                        </select>
                       </div>
                       <button type="submit" className="btn btn-primary">Submit</button>
                       <ToastContainer

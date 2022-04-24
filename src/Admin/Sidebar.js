@@ -25,7 +25,7 @@ const Sidebar = () => {
             <i className="fa fa-bars fa-large"></i>
           }
         >
-          <NavLink to="" className="text-decoration-none" style={{ color: "inherit" }}>
+          <NavLink to="/AdminDashboard" className="text-decoration-none" style={{ color: "inherit" }}>
             Admin Dashboard
           </NavLink>
         </CDBSidebarHeader>
@@ -87,6 +87,17 @@ const Sidebar = () => {
                 Project Tasks
               </CDBSidebarMenuItem>
             </NavLink>
+            <NavLink
+              exact
+              to="/Report"
+              activeclassname="activeClicked"
+            >
+              <CDBSidebarMenuItem
+                icon="book"
+              >
+                Project Report
+              </CDBSidebarMenuItem>
+            </NavLink>
           </CDBSidebarMenu>
           <CDBSidebarMenu>
           </CDBSidebarMenu>
@@ -105,7 +116,7 @@ const Sidebar = () => {
               padding: "20px 5px"
             }}
           >
-            Sidebar Footer
+            
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
